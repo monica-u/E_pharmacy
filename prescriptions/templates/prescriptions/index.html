@@ -1,0 +1,14 @@
+{% if prescription_list %}
+    <ul>
+    {% for prescription in prescription_list %}
+        <li>
+          {{ prescription.message }}
+          <span><a href="{% url 'prescriptions:update' prescription.id %}">edit</a></span>
+          <span><a href="{% url 'prescriptions:delete' prescription.id %}">delete</a></span>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No prescriptions are available.</p>
+{% endif %}
+<a href="{% url 'prescriptions:create' %}">Create a New Prescription</a>

@@ -1,4 +1,4 @@
 --- # basic greeting
-- model: greetings.greeting
+- model: prescriptions.prescription
   fields:
     message: hello, world!
