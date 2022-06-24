@@ -1,10 +1,16 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'prescriptions/styles.css' %}">
+
+<h2>Prescriptions</h2>
+
 {% if prescription_list %}
     <ul>
     {% for prescription in prescription_list %}
         <li>
           {{ prescription.message }}
-          <span><a href="{% url 'prescriptions:update' prescription.id %}">edit</a></span>
-          <span><a href="{% url 'prescriptions:delete' prescription.id %}">delete</a></span>
+          <a href="{% url 'prescriptions:update' prescription.id %}">edit</a>
+          <a href="{% url 'prescriptions:delete' prescription.id %}">delete</a>
         </li>
     {% endfor %}
     </ul>
