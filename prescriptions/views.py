@@ -26,3 +26,5 @@ class DeleteView(generic.edit.DeleteView):
     template_name = 'prescriptions/delete.html' # override default of prescriptions/prescription_confirm_delete.html
     model = Prescription
     success_url = reverse_lazy('prescriptions:index')
+
+    
