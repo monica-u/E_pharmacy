@@ -1,0 +1,16 @@
+{% extends 'pharma/start.html' %}
+{% block content %}
+{% load static %}
+<!-- <link rel="stylesheet" type="text/css" href="{% static 'prescriptions/styles.css' %}"> -->
+{% if med_list %}
+    {% for med in med_list %}
+        <article class="post">
+            <h2>Medicine Name: <a href="{% url 'pharma:view' pk=med.pk %}">{{ med.medName }}</a></h2>
+            <p>Price: ${{ med.price|linebreaksbr }}</p>
+            <p>Quantity: {{ med.quantity|linebreaksbr }}</p>
+        </article>
+    {% endfor %}
+{% else %}
+    <p>No Medicines are available.</p>
+{% endif %}
+{% endblock %}

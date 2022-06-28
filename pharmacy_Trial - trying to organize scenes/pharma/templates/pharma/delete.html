@@ -1,0 +1,9 @@
+{% load static %}
+<!-- <link rel="stylesheet" type="text/css" href="{% static 'prescriptions/styles.css' %}"> -->
+<form method="post">{% csrf_token %}
+    <p>Are you sure you want to delete the following medicine "{{ object.medName }}"?</p>
+    <input type="submit" value="Confirm">
+    <a href="{% url 'pharma:index' %}">
+        <input type="button" value="Home" />
+    </a>
+</form>

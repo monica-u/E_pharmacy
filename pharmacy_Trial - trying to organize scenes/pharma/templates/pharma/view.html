@@ -1,0 +1,17 @@
+{% extends 'pharma/start.html' %}
+{% block create %}{% endblock %}
+{% block content %}
+{% load static %}
+<!-- <link rel="stylesheet" type="text/css" href="{% static 'prescriptions/styles.css' %}"> -->
+    <article class="post">
+        <h2>{{ med.medName }}</h2>
+        <a href="{% url 'pharma:update' pk=med.pk %}">
+            <input type="button" value="Update/Edit the Post">
+        </a>
+        <a href="{% url 'pharma:index' %}">
+            <input type="button" value="Home">
+        </a>
+        <p>Price: ${{ med.price|linebreaksbr }}</p>
+        <p>Quantity: {{ med.quantity|linebreaksbr }}</p>
+    </article>
+{% endblock %}
