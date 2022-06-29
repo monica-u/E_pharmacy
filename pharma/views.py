@@ -25,7 +25,7 @@ class CreateView(generic.edit.CreateView):
 	
 def ViewPostView(request, pk):
     Med = get_object_or_404(med, pk=pk)
-    return render(request, 'pharma/view.html', {'Med': Med})
+    return render(request, 'pharma/view.html', {'med': Med})
 
 class UpdateView(generic.edit.UpdateView):
     template_name = 'pharma/update.html'
