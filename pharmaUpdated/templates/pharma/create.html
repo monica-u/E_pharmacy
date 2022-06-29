@@ -1,9 +1,0 @@
-{% load static %}
-<!-- <link rel="stylesheet" type="text/css" href="{% static 'prescriptions/styles.css' %}"> -->
-<form method="post">{% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Save">
-    <a href="{% url 'pharma:index' %}">
-        <input type="button" value="Home" />
-    </a>
-</form>
