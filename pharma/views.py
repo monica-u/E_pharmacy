@@ -5,7 +5,6 @@ from django.urls import reverse_lazy
 from .models import med
 from django.contrib.auth.models import User
 from .forms import NewUserForm
-from django.contrib.auth import login
 from django.contrib import messages
 from django.contrib.auth import login, authenticate 
 from django.contrib.auth.forms import AuthenticationForm
@@ -22,10 +21,19 @@ class CreateView(generic.edit.CreateView):
     model = med
     fields = ['medName','price', 'quantity']
     success_url = reverse_lazy('pharma:index')
+
+
+class OrderView(generic.ListView):
+    template_name = 'pharma/cart.html'
+    context_object_name = 'med_list'
+
+    def get_queryset(self):
+        return med.objects.order_by('-medName')
 	
+
 def ViewPostView(request, pk):
-    Med = get_object_or_404(med, pk=pk)
-    return render(request, 'pharma/view.html', {'med': Med})
+    Medi = get_object_or_404(med, pk=pk)
+    return render(request, 'pharma/view.html', {'med': Medi})
 
 class UpdateView(generic.edit.UpdateView):
     template_name = 'pharma/update.html'
@@ -37,6 +45,7 @@ class DeleteView(generic.edit.DeleteView):
     template_name = 'pharma/delete.html'
     model = med
     success_url = reverse_lazy('pharma:index')
+
 
 def register_request(request):
 	if request.method == "POST":

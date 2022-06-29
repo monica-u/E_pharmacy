@@ -22,7 +22,7 @@
                         {% if med_list %}
                             {% for med in med_list %}
                                 <article class="post">
-                                    <h2><a href="{% url 'pharma:view' pk=med.pk %}">{{ med.medName }}</a></h2>
+                                    <p><a href="{% url 'pharma:view' pk=med.pk %}">{{ med.medName }}</a></p>
                                     <p>Price: ${{ med.price|linebreaksbr }}</p>
                                     <p>Quantity: {{ med.quantity|linebreaksbr }}</p>
                                 </article>

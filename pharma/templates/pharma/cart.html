@@ -1,8 +1,23 @@
+{% block content %}
+<h1>Please start adding needed Medicine</h1>
+<h2>List of Medicines</h2>
 {% load static %}
-<!-- <link rel="stylesheet" type="text/css" href="{% static 'pharma/styles.css' %}"> -->
-<form method="post">{% csrf_token %}
-    <h2>Shopping Cart</h2>
-    <a href="{% url 'pharma:index' %}">
-        <input type="button" value="Home" />
-    </a>
-</form>
+<!-- <link rel="stylesheet" type="text/css" href="{% static 'prescriptions/styles.css' %}"> -->
+{% if med_list %}
+    {% for med in med_list %}
+        <article class="post">
+            <p>Medicine Name: <a href="{% url 'pharma:view' pk=med.pk %}">{{ med.medName }}</a></p>
+            <p>Price: ${{ med.price|linebreaksbr }}</p>
+            <p>Quantity: {{ med.quantity|linebreaksbr }}</p>
+        </article>
+    {% endfor %}
+{% else %}
+    <p>No Medicines are available.</p>
+{% endif %}
+<a href="{% url 'pharma:index' %}">
+    <input type="button" value="Home">
+</a>
+<hr>
+<h1>Your Shopping Cart</h1>
+<h2>List of added Medicines</h2>
+{% endblock %}
