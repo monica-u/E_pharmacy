@@ -1,0 +1,13 @@
+body ,p{
+    background: white url("images/background.jpg") no-repeat center;
+    background-size: cover;
+}
+
+h2, ul, li, p {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: aliceblue;
+}
+a {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: darkorange;
+}
