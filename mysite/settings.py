@@ -133,3 +133,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 django_heroku.settings(locals())
+
+CSRF_TRUSTED_ORIGINS = ['https://e-pharmacy-ee491f.herokuapp.com']
