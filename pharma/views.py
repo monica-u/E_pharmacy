@@ -38,8 +38,6 @@ class DeleteView(generic.edit.DeleteView):
     model = med
     success_url = reverse_lazy('pharma:index')
 
-
-
 def register_request(request):
 	if request.method == "POST":
 		form = NewUserForm(request.POST)   
