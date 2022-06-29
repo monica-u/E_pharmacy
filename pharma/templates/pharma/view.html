@@ -2,7 +2,7 @@
 {% block create %}{% endblock %}
 {% block content %}
 {% load static %}
-<!-- <link rel="stylesheet" type="text/css" href="{% static 'prescriptions/styles.css' %}"> -->
+<!-- <link rel="stylesheet" type="text/css" href="{% static 'pharma/styles.css' %}"> -->
     <article class="post">
         <h2>{{ med.medName }}</h2>
         <a href="{% url 'pharma:update' pk=med.pk %}">

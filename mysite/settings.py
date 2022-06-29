@@ -134,4 +134,4 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 django_heroku.settings(locals())
 
-CSRF_TRUSTED_ORIGINS = ['https://e-pharmacy-ee491f.herokuapp.com']
+CSRF_TRUSTED_ORIGINS = ['https://e-pharma-ee491f.herokuapp.com']
