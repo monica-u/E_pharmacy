@@ -1,0 +1,47 @@
+{% block content %}
+{% load static %}
+<head>
+    <title>Pharmacy</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'pharma:index' %}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'pharma:create' %}">Add Medicine</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'pharma:cart' %}">Shopping Cart <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'pharma:login' %}">Log Out</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+<h1>Please start adding needed Medicine</h1>
+<h2>List of Medicines</h2>
+<!-- <link rel="stylesheet" type="text/css" href="{% static 'prescriptions/styles.css' %}"> -->
+{% if med_list %}
+    {% for med in med_list %}
+        <article class="post">
+            <p>Medicine Name: <a href="{% url 'pharma:view' pk=med.pk %}">{{ med.medName }}</a></p>
+            <p>Price: ${{ med.price|linebreaksbr }}</p>
+            <p>Quantity: {{ med.quantity|linebreaksbr }}</p>
+        </article>
+    {% endfor %}
+{% else %}
+    <p>No Medicines are available.</p>
+{% endif %}
+<hr>
+<h1>Your Shopping Cart</h1>
+<h2>List of added Medicines</h2>
+
+{% endblock %}
